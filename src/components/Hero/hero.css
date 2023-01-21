@@ -1,7 +1,72 @@
-.heroclass{
-    margin: 2rem 1rem;
-    width: 1005;
-    /* min-height: 50vh; */
+.heroclass {
+  margin: 2rem 1rem;
+  padding: 2rem 0rem;
+  width: 1005;
+  /* min-height: 50vh; */
+  height: auto;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.heroclass .hero-side {
+  display: inline;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroclass .hero-side .hero-name {
+  font-size: 3rem;
+  font-weight: 700;
+  /* background-color: aquamarine; */
+  padding: 1rem;
+  text-align: center;
+}
+
+.heroclass .hero-side .hero-content {
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-align: center;
+  /* background-color: blueviolet; */
+}
+
+.heroclass .hero-side .hero-desc {
+    padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.heroclass .hero-side .hero-connect {
+  padding: 1rem;
+  /* background-color: aquamarine; */
+  text-align: center;
+}
+
+.heroclass .hero-side .hero-connect > a {
+  /* text-decoration: none; */
+  /* color: #5d5f79; */
+  font-size: 1.2em;
+  color: blueviolet;
+}
+
+@media screen and (max-width: 650px) {
+  .heroclass {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    margin: 2rem 0;
+    padding: 2rem 0;
+  }
+
+  .heroclass .hero-image > img {
+    width: 50vw;
     height: auto;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

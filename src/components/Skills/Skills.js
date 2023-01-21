@@ -4,21 +4,7 @@ const Skills = () => {
 
     return (
         <div className="skillsclass">
-            <h1>Skills</h1>
-            <h1>Skills</h1>
-            <h1>Skills</h1>
-            <h1>Skills</h1>
-            <h1>Skills</h1>
-            <h1>Skills</h1>
-            <h1>Skills</h1>
-            <h1>Skills</h1>
-            <h1>Skills</h1>
-            <h1>Skills</h1>
-            <h1>Skills</h1>
-            <h1>Skills</h1>
-            <h1>Skills</h1>
-            <h1>Skills</h1>
-            <h1>Skills</h1>
+            <h1>Skills</h1> 
         </div>
     );
 };
