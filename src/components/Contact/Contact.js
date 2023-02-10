@@ -4,8 +4,9 @@ const Contact = () => {
 
     return (
         <div className="contactclass">
-            <h1>Contact</h1>
+            Contact
         </div>
+        
     );
 };
 

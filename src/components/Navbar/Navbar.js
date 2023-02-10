@@ -54,6 +54,7 @@ const Navbar = () => {
               <svg
                 width="32"
                 height="31"
+                color="#fff"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512"
               >

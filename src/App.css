@@ -1,4 +1,12 @@
 .App {
- margin: 0;
- padding: 0;
+  margin: 0;
+  padding: 0;
+}
+.topHero {
+  background: rgb(152, 186, 231);
+  background: linear-gradient(
+    180deg,
+    rgba(152, 186, 231, 1) 0%,
+    rgba(110, 60, 188, 1) 88%
+  );
 }
