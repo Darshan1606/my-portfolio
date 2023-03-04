@@ -43,7 +43,7 @@ const projectData = [
     project_tech: ["JavaScript", "React", "HTML", "CSS"],
     project_description: "This is my portfolio which made by me using React",
     project_codelink: "https://github.com/Darshan1606/DarshanTarsariya",
-    project_livelink: "",
+    project_livelink: "https://darshant.netlify.app/",
   },
 ];
 

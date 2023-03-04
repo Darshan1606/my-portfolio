@@ -4,7 +4,7 @@ const Contact = () => {
 
     return (
         <div className="contactclass">
-            Contact
+           
         </div>
         
     );
