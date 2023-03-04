@@ -1,7 +1,7 @@
 import React from "react";
 import mypic from "../../assets/my_profile.png";
 
-import "./hero.css";
+import "../../assets/style/App.css";
 
 const Hero = () => {
   return (
@@ -18,7 +18,7 @@ const Hero = () => {
             projects in web devlopment
           </div>
           <div className="hero-connect">
-            <a href="#">Want to Connect?</a>
+            <a href="/  ">Want to Connect?</a>
           </div>
         </div>
       </div>

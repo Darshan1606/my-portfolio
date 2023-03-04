@@ -2,7 +2,7 @@ import React from "react";
 
 import { useState } from "react";
 
-import "./navbar.css";
+import "../../assets/style/App.css";
 
 const Navbar = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -26,23 +26,23 @@ const Navbar = () => {
       </button>
 
       <nav>
-        <a href="#">Darshan Tarsariya</a>
+        <a href="/">Darshan Tarsariya</a>
         <div className={isNavExpanded ? "nav-expand " : "nav-menu"}>
-          <ul data-visible="false" class="primary-navigation flex">
+          <ul data-visible="false" className="primary-navigation flex">
             <li className="active">
-              <a href="#">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a href="#">Skills</a>
+              <a href="/">Skills</a>
             </li>
             <li>
-              <a href="#">Experience</a>
+              <a href="/">Projects</a>
             </li>
             <li>
-              <a href="#">Projects</a>
+              <a href="/">Experience</a>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <a href="/">Contact</a>
             </li>
 
             <button

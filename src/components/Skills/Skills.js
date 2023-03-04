@@ -1,7 +1,6 @@
 import React from "react";
-import "./skills.css";
+import "../../assets/style/App.css";
 
-import skills from '../../assets/hero.png'
 import htmlIcon from "../../assets/html_icon.png";
 import cssIcon from "../../assets/css_icon.png";
 import jsIcon from "../../assets/js_icon.png";
@@ -13,7 +12,7 @@ import cppIcon from "../../assets/c++_icon.png";
 const Skills = () => {
   return (
     <div className="skillsclass">
-      <div className="skill-title">Skills</div>
+      <div className="section-title">Skills</div>
 
       <div className="skills-content">
         <div className="skills-list">
