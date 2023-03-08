@@ -40,7 +40,7 @@ const projectData = [
     _id: 4,
     imgUrl: p4,
     project_title: "My Portfolio",
-    project_tech: ["JavaScript", "React", "HTML", "CSS"],
+    project_tech: ["JavaScript", "React", "HTML", "Tailwind CSS"],
     project_description: "This is my portfolio which made by me using React",
     project_codelink: "https://github.com/Darshan1606/DarshanTarsariya",
     project_livelink: "https://darshant.netlify.app/",
@@ -49,30 +49,31 @@ const projectData = [
 
 const Projects = () => {
   return (
-    <div className="projects">
-      <div className="project-section">
-        <div className="section-title">Projects</div>
-        <div className="projects-list">
+    <div className="projects p-16 h-auto bg-violet-700">
+      <div className="project-section p-8 rounded-3xl bg-white h-auto">
+        <div className="text-violet-700 text-4xl font-semibold text-center uppercase">Projects</div>
+        <div className="m-8 p-4 grid grid-cols-4 gap-8">
           {projectData.map((project) => (
-            <div key={project._id} className="projects-card">
-              <div className="projects-img">
-                <img src={project.imgUrl} alt="" width={250} />
+            <div key={project._id} className="projects-card p-4 rounded-2xl h-auto min-w-fit">
+              <div>
+                <img className="rounded-xl" src={project.imgUrl} alt="" width={250} />
               </div>
-              <div className="projects-content">
-                <div className="projects-title">{project.project_title}</div>
-                <div className="projects-techlist">
+              <div className="my-4 text-center">
+                <div className="py-4 text-violet-500 text-2xl font-bold">{project.project_title}</div>
+                <div className="grid grid-cols-2 gap-4 text-center">
                   {project.project_tech.map((tech, index) => (
-                    <div key={index} className="projects-tech">
+                    <div key={index} className="font-medium text-sm p-1 text-orange-300 border border-orange-300 rounded-xl" >
                       {tech}
                     </div>
                   ))}
                 </div>
-                <div className="projects-desc">
+                <div className="text-gray-400 text-base font-normal py-4 ">
                   {project.project_description}
                 </div>
-                <div className="projects-links">
-                  <div className="projects-link-code-live">
+                <div className="p-2 flex justify-center items-center">
+                  <div className="w-full bg-orange-400 m-1 p-1 rounded-xl hover:bg-orange-200">
                     <a
+                    className="flex justify-center items-center text-center text-white no-underline text-lg font-medium"
                       rel="noreferrer"
                       href={project.project_codelink}
                       target="_blank"
@@ -82,8 +83,9 @@ const Projects = () => {
                     </a>
                   </div>
                   {project.project_livelink && (
-                    <div className="projects-link-code-live">
+                    <div className="w-full bg-orange-400 m-1 p-1 rounded-xl hover:bg-orange-200">
                       <a
+                      className="flex justify-center items-center text-center text-white no-underline text-lg font-medium"
                         rel="noreferrer"
                         href={project.project_livelink}
                         target="_blank"

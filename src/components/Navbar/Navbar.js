@@ -4,11 +4,19 @@ import { useState } from "react";
 
 import "../../assets/style/App.css";
 
+const navMenu = [
+  { title: "Home", link: "/" },
+  { title: "Skills", link: "/" },
+  { title: "Projects", link: "/" },
+  { title: "Experiance", link: "/" },
+  { title: "Contact", link: "/" },
+];
+
 const Navbar = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   return (
-    <div className="navbarclass">
+    <div className="w-full">
       <button
         onClick={() => setIsNavExpanded(!isNavExpanded)}
         className="hamburger"
@@ -24,27 +32,21 @@ const Navbar = () => {
           <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" />
         </svg>
       </button>
-
-      <nav>
-        <a href="/">Darshan Tarsariya</a>
+      <nav className="flex justify-between items-center text-center py-8 px-6 mx-8">
+        <a
+          className="text-4xl font-semibold no-underline text-white  hover:text-violet-700"
+          href="/"
+        >
+          Darshan Tarsariya
+        </a>
         <div className={isNavExpanded ? "nav-expand " : "nav-menu"}>
-          <ul data-visible="false" className="primary-navigation flex">
-            <li className="active">
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/">Skills</a>
-            </li>
-            <li>
-              <a href="/">Projects</a>
-            </li>
-            <li>
-              <a href="/">Experience</a>
-            </li>
-            <li>
-              <a href="/">Contact</a>
-            </li>
-
+          <ul data-visible="false" className="flex justify-evenly items-center text-center list-none ">
+            {navMenu.map((menu) => {
+              return(
+              <li className="ml-12 list-none">
+                <a className="text-white text-center no-underline hover:text-violet-700" href={menu.link}>{menu.title}</a>
+              </li>)
+            })}
             <button
               onClick={() => setIsNavExpanded(!isNavExpanded)}
               className="hamburger"
