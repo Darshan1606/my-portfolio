@@ -1,6 +1,5 @@
 import "./assets/style/App.css";
 import Contact from "./components/Contact/Contact";
-import Experience from "./components/Experience/Experience";
 import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
 import Projects from "./components/Projects/Projects";
@@ -36,7 +35,6 @@ function App() {
           d="M0,64L48,74.7C96,85,192,107,288,101.3C384,96,480,64,576,69.3C672,75,768,117,864,138.7C960,160,1056,160,1152,160C1248,160,1344,160,1392,160L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
         ></path>
       </svg>
-      <Experience />
       <Contact />
     </div>
   );
