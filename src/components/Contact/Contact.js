@@ -7,7 +7,7 @@ const Contact = () => {
     e.target.reset();
   };
   return (
-    <div className="h-auto p-4">
+    <div className="h-auto p-4" id="contactme">
       <div className="text-violet-700 text-4xl font-semibold text-center uppercase pb-8">
         Contact Me
       </div>

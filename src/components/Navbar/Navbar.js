@@ -5,11 +5,11 @@ import { useState } from "react";
 import "../../assets/style/App.css";
 
 const navMenu = [
-  { title: "Home", link: "/" },
-  { title: "Skills", link: "/" },
-  { title: "Projects", link: "/" },
-  { title: "Experiance", link: "/" },
-  { title: "Contact", link: "/" },
+  { title: "Home", link: "#home" },
+  { title: "Skills", link: "#skills" },
+  { title: "Projects", link: "#projects" },
+  { title: "Experiance", link: "#experiance" },
+  { title: "Contact", link: "#contactme" },
 ];
 
 const Navbar = () => {
@@ -35,17 +35,26 @@ const Navbar = () => {
       <nav className="flex justify-between items-center text-center py-8 px-6 mx-8">
         <a
           className="text-4xl font-semibold no-underline text-white  hover:text-violet-700"
-          href="/"
+          href="#home"
         >
           Darshan Tarsariya
         </a>
         <div className={isNavExpanded ? "nav-expand " : "nav-menu"}>
-          <ul data-visible="false" className="flex justify-evenly items-center text-center list-none ">
+          <ul
+            data-visible="false"
+            className="flex justify-evenly items-center text-center list-none "
+          >
             {navMenu.map((menu) => {
-              return(
-              <li className="ml-12 list-none">
-                <a className="text-white text-center no-underline hover:text-violet-700" href={menu.link}>{menu.title}</a>
-              </li>)
+              return (
+                <li className="ml-12 list-none">
+                  <a
+                    className="text-white text-center no-underline hover:text-violet-700"
+                    href={menu.link}
+                  >
+                    {menu.title}
+                  </a>
+                </li>
+              );
             })}
             <button
               onClick={() => setIsNavExpanded(!isNavExpanded)}

@@ -49,7 +49,7 @@ const projectData = [
 
 const Projects = () => {
   return (
-    <div className="projects p-16 h-auto bg-violet-700">
+    <div className="projects p-16 h-auto bg-violet-700" id="projects">
       <div className="project-section p-8 rounded-3xl bg-white h-auto">
         <div className="text-violet-700 text-4xl font-semibold text-center uppercase">
           Projects

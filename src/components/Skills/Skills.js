@@ -7,7 +7,7 @@ import jsIcon from "../../assets/image/js_icon.png";
 import reactIcon from "../../assets/image/react_icon.png";
 import reduxIcon from "../../assets/image/redux_icon.png";
 import cppIcon from "../../assets/image/c++_icon.png";
-import tailwindCSS from "../../assets/image/tailwindcss-mark.svg"
+import tailwindCSS from "../../assets/image/tailwindcss-mark.svg";
 
 const skills = [
   {
@@ -49,7 +49,7 @@ const skills = [
 
 const Skills = () => {
   return (
-    <div className="p-8">
+    <div className="p-8" id="skills">
       <div className="text-violet-700 text-4xl font-semibold text-center uppercase">
         Skills
       </div>
@@ -58,7 +58,9 @@ const Skills = () => {
           {skills.map((skill) => {
             return (
               <div className="flex justify-center items-center flex-col m-0 px-12 w-40 h-40 rounded-md border shadow-lg shadow-gray-100">
-                <div className="text-lg font-normal text-center p-4 text-violet-600">{skill.name}</div>
+                <div className="text-lg font-normal text-center p-4 text-violet-600">
+                  {skill.name}
+                </div>
                 <img width="130px" src={skill.image} alt={skill.alt} />
               </div>
             );
