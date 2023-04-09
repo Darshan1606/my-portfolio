@@ -49,12 +49,12 @@ const skills = [
 
 const Skills = () => {
   return (
-    <div className="p-8" id="skills">
+    <div className="p-2 sm:p-8" id="skills">
       <div className="text-violet-700 text-4xl font-semibold text-center uppercase">
         Skills
       </div>
       <div className="flex justify-evenly items-center">
-        <div className="grid grid-cols-4 gap-12 m-4 p-8">
+        <div className="grid grid-cols-2   sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-8 m-4 p-2 sm:p-4 md:p-8">
           {skills.map((skill) => {
             return (
               <div className="flex justify-center items-center flex-col m-0 px-12 w-40 h-40 rounded-md border shadow-lg shadow-gray-100">

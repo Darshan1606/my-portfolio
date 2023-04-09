@@ -49,18 +49,18 @@ const projectData = [
 
 const Projects = () => {
   return (
-    <div className="projects p-16 h-auto bg-violet-700" id="projects">
-      <div className="project-section p-8 rounded-3xl bg-white h-auto">
+    <div className="projects p-4 md:p-16 h-auto bg-violet-700" id="projects">
+      <div className="project-section p-2 md:p-8 rounded-3xl bg-white h-auto">
         <div className="text-violet-700 text-4xl font-semibold text-center uppercase">
           Projects
         </div>
-        <div className="m-8 p-4 grid grid-cols-4 gap-8">
+        <div className="m-8 p-4 grid grid-cols-1 sm:grid-cols-2  xl:grid-cols-4 gap-8">
           {projectData.map((project) => (
             <div
               key={project._id}
               className="projects-card p-4 rounded-2xl h-auto min-w-fit"
             >
-              <div>
+              <div className="flex justify-center items-center">
                 <img
                   className="rounded-xl"
                   src={project.imgUrl}
