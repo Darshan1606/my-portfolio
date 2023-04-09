@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <>
       <div
-        className="heroclass mt-8 mr-4 mb-0 ml-4 py-8 w-25 h-auto flex justify-evenly items-center"
+        className="heroclass mt-8 mr-4 mb-0 ml-4 py-8 w-auto h-auto flex justify-evenly items-center"
         id="home"
       >
         <div className="hero-image">
@@ -19,7 +19,7 @@ const Hero = () => {
           />
         </div>
         <div className="hero-side inline justify-center items-center">
-          <div className="p-4 text-center text-white text-5xl font-bold">
+          <div className="p-4 text-center text-white text-3xl md:text-5xl font-bold">
             Hi, I'm Darshan
           </div>
           <div className="p-4 text-2xl font-light text-center uppercase text-blue-200 tracking-widest">
