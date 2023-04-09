@@ -7,10 +7,10 @@ const Hero = () => {
   return (
     <>
       <div
-        className="heroclass mt-8 mr-4 mb-0 ml-4 py-8 w-auto h-auto flex justify-evenly items-center"
+        className="heroclass mt-8 mr-4 mb-0 ml-4 py-8 w-auto h-auto grid grid-cols-1 md:grid-cols-2"
         id="home"
       >
-        <div className="hero-image">
+        <div className="hero-image flex justify-center items-center">
           <img
             className="rounded-full"
             width="300px"
