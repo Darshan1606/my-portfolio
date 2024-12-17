@@ -1,45 +1,35 @@
 import React from "react";
-import mypic from "../../assets/image/my_profile.png";
-
 import "../../assets/style/App.css";
 
 const Hero = () => {
   return (
-    <>
+    <section id="home" className="relative py-16 md:py-24">
+      {/* Centered Hero Content */}
       <div
-        className="heroclass mt-8 mr-4 mb-0 ml-4 py-8 w-auto h-auto grid grid-cols-1 md:grid-cols-2"
-        id="home"
+        className="text-center text-white mt-6 md:mt-0 animate-fadeInRight"
+        data-aos="fade-left"
       >
-        <div className="hero-image flex justify-center items-center">
-          <img
-            className="rounded-full"
-            width="300px"
-            src={mypic}
-            alt="darshan"
-          />
-        </div>
-        <div className="hero-side inline justify-center items-center">
-          <div className="p-4 text-center text-white text-3xl md:text-5xl font-bold">
-            Hi, I'm Darshan
-          </div>
-          <div className="p-4 text-2xl font-light text-center uppercase text-blue-200 tracking-widest">
-            B.Tech(IT) Student & Web Developer
-          </div>
-          <div className="m-auto p-4 text-base text-center font-normal lowercase w-7/12 text-gray-300">
-            Innovative and Passionate about work, Designing and Developing some
-            projects in web devlopment
-          </div>
-          <div className="hero-connect p-4 text-center">
-            <a
-              className="p-3 rounded-md text-lg text-violet-700 bg-white no-underline outline-0"
-              href="#contactme"
-            >
-              Want to Connect?
-            </a>
-          </div>
-        </div>
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-snug mb-4 tracking-wide">
+          Hi, I'm Darshan<span className="text-violet-400"></span>
+        </h1>
+        <h2 className="text-2xl md:text-3xl font-light uppercase text-blue-300 tracking-wider mb-4">
+          Software Engineer
+        </h2>
+        <p className="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed">
+          Transforming ideas into{" "}
+          <span className="text-white">scalable solutions</span> with a pinch of
+          creativity and a dash of code.
+        </p>
+
+        {/* Connect Button */}
+        <a
+          href="#contactme"
+          className="inline-block bg-violet-500 text-white px-6 py-3 rounded-lg font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-lg hover:bg-violet-600"
+        >
+          Let's Connect
+        </a>
       </div>
-    </>
+    </section>
   );
 };
 

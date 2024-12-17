@@ -21,7 +21,7 @@
   top: 30px;
   right: 40px;
   display: none;
-  background: none; 
+  background: none;
 }
 
 @media screen and (min-width: 100px) and (max-width: 768px) {
@@ -37,10 +37,10 @@
     backdrop-filter: blur(15rem);
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     text-align: left;
-    -moz-transition:all 1000ms ease-in;
-    -webkit-transition:all 1000ms ease-in;
-    -o-transition:all 1000ms ease-in;
-    transition:all 1000ms ease-in;
+    -moz-transition: all 1000ms ease-in;
+    -webkit-transition: all 1000ms ease-in;
+    -o-transition: all 1000ms ease-in;
+    transition: all 1000ms ease-in;
   }
   nav > .nav-expand > ul > li {
     margin: 20px 0;
@@ -52,7 +52,7 @@
     font-weight: 600;
   }
   nav > .nav-expand > ul > li > a:hover {
-    color: #6E3CBC;
+    color: #6e3cbc;
   }
   .hamburger {
     position: absolute;
@@ -60,29 +60,30 @@
   }
 }
 
-
 @media screen and (max-width: 768px) {
-    .hamburger {
-        display: block;
-        color: blueviolet;
-    }
-    nav {
-        margin: 0 1.2em;
-        justify-content: left;
-        padding: 0;
-    }
+  .hamburger {
+    display: block;
+    color: blueviolet;
+  }
+  nav {
+    margin: 0 1.2em;
+    justify-content: left;
+    padding: 0;
+  }
 
-    nav > .nav-menu >ul {
-        display: none;
-    }
+  nav > .nav-menu > ul {
+    display: none;
+  }
 }
 
 .heroclass .hero-image > img {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
 .hero-connect > a {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
 @media screen and (max-width: 650px) {
@@ -101,20 +102,4 @@
     margin-left: auto;
     margin-right: auto;
   }
-}
-
-.projects{
-  background: linear-gradient(
-    180deg,
-    rgba(110, 60, 188, 1) 0%,
-    rgba(152, 186, 231, 1) 88%
-  );
-}
-
-.project-section{
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-}
-
-.projects-card{
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }

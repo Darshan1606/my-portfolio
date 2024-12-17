@@ -6,9 +6,8 @@ import "../../assets/style/App.css";
 
 const navMenu = [
   { title: "Home", link: "#home" },
-  { title: "Skills", link: "#skills" },
+  { title: "Tech Stack & Tools", link: "#tech" },
   { title: "Projects", link: "#projects" },
-  { title: "Experiance", link: "#experiance" },
   { title: "Contact", link: "#contactme" },
 ];
 
