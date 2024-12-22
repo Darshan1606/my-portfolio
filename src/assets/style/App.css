@@ -2,19 +2,10 @@
   margin: 0;
   padding: 0;
 }
-/* .topHero {
-  background: rgb(152, 186, 231);
-  background: linear-gradient(
-    180deg,
-    rgba(152, 186, 231, 1) 0%,
-    rgba(110, 60, 188, 1) 88%
-  );
-  clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 85%);
-} */
 
 .topHero {
   background: rgba(110, 60, 188, 1);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 85%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 82%);
   height: 100vh; /* Adjust based on your design */
 }
 

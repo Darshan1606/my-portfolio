@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com"; // Import the EmailJS SDK
 import { toast, Toaster } from "react-hot-toast";
+import {
+  EMAILJS_SERVICE_ID,
+  EMAILJS_TEMPLATE_ID,
+  EMAILJS_USER_ID,
+} from "constants/env.constants";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +13,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,22 +25,29 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_k9ir3hk", // EmailJS service ID
-        "template_i3pkgg8", // EmailJS template ID
-        e.target,
-        "rGkD-yeMpc7EVuPQi" // EmailJS user ID
-      )
-      .then(
-        (result) => {
-          toast.success("Your message has been sent successfully!");
-          setFormData({ fname: "", email: "", message: "" });
-        },
-        (error) => {
-          toast.error("Failed to send message. Please try again");
-        }
-      );
+    setIsLoading(true);
+    try {
+      emailjs
+        .sendForm(
+          EMAILJS_SERVICE_ID, // EmailJS service ID
+          EMAILJS_TEMPLATE_ID, // EmailJS template ID
+          e.target,
+          EMAILJS_USER_ID // EmailJS user ID
+        )
+        .then(
+          (result) => {
+            toast.success("Your message has been sent successfully!");
+            setFormData({ fname: "", email: "", message: "" });
+          },
+          (error) => {
+            toast.error("Failed to send message. Please try again");
+          }
+        );
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -110,9 +123,14 @@ const Contact = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="inline-block bg-violet-500 text-white px-6 py-3 rounded-lg font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-lg hover:bg-violet-600"
+              className={`inline-block bg-violet-500 text-white px-6 py-3 rounded-lg font-semibold text-lg transform ${
+                isLoading ? "opacity-70" : "hover:scale-105"
+              } transition-all duration-300 shadow-lg ${
+                isLoading ? "cursor-not-allowed" : "hover:bg-violet-600"
+              }`}
+              disabled={isLoading} // Disable button while loading
             >
-              Send Message
+              {isLoading ? "Sending..." : "Send Message"}
             </button>
           </div>
         </form>

@@ -1,4 +1,4 @@
-import "./App.css";
+import "./assets/style/App.css";
 import Navbar from "./components/navBar.js";
 import Hero from "./components/hero.js";
 import Skills from "./components/skills.js";
@@ -18,9 +18,11 @@ function App() {
       <Skills />
 
       <Projects />
+
       <WorkExperience />
 
       <Contact />
+
       <Footer />
     </div>
   );

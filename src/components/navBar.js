@@ -1,17 +1,6 @@
-import React from "react";
-
+import { navMenu } from "constants/app.constants";
 import { useState } from "react";
-
-import "../../assets/style/App.css";
 import { HiMenu, HiX } from "react-icons/hi";
-
-const navMenu = [
-  { title: "Home", link: "#home" },
-  { title: "Tech Stack & Tools", link: "#tech" },
-  { title: "Projects", link: "#projects" },
-  { title: "Work Experience", link: "#workexperience" },
-  { title: "Contact", link: "#contactme" },
-];
 
 const Navbar = () => {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -38,12 +27,12 @@ const Navbar = () => {
             data-visible="false"
             className="flex justify-evenly items-center text-center list-none "
           >
-            {navMenu.map((menu) => {
+            {navMenu?.map((menu) => {
               return (
                 <li className="ml-12 list-none">
                   <a
                     className="text-white text-center no-underline hover:text-orange-300"
-                    href={menu.link}
+                    href={menu?.link}
                     onClick={() => setIsNavExpanded(!isNavExpanded)}
                   >
                     {menu.title}

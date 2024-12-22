@@ -1,6 +1,3 @@
-import React from "react";
-import "../../assets/style/App.css";
-
 const Hero = () => {
   return (
     <section id="home" className="relative py-16 md:py-24">
