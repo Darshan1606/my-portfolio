@@ -1,67 +1,3 @@
-// import React from "react";
-// import "../../assets/style/App.css";
-
-// import jsIcon from "../../assets/image/js_icon.png";
-// import reactIcon from "../../assets/image/react_icon.png";
-// import reduxIcon from "../../assets/image/redux_icon.png";
-// import cppIcon from "../../assets/image/c++_icon.png";
-// import tailwindCSS from "../../assets/image/tailwindcss-mark.svg";
-// import nodejs from "../../assets/image/nodejs.png";
-// import expressjs from "../../assets/image/express.png";
-// import mongodb from "../../assets/image/mongodb.png";
-
-// const skills = [
-//   { name: "JavaScript", image: jsIcon, alt: "javascript" },
-//   { name: "React", image: reactIcon, alt: "react" },
-//   { name: "Tailwind CSS", image: tailwindCSS, alt: "tailwindCSS" },
-//   { name: "Redux", image: reduxIcon, alt: "redux" },
-//   { name: "NodeJs", image: nodejs, alt: "nodejs" },
-//   { name: "ExpressJs", image: expressjs, alt: "expressjs" },
-//   { name: "MongoDB", image: mongodb, alt: "mongodb" },
-//   { name: "C++", image: cppIcon, alt: "c++" },
-// ];
-
-// const Skills = () => {
-//   return (
-//     <div className="p-4 sm:p-8" id="skills">
-//       {/* Section Title */}
-//       <div className="text-center mb-8">
-//         <h2 className="text-4xl md:text-5xl font-extrabold uppercase text-gray-800 tracking-widest">
-//           Skills
-//         </h2>
-//         <p className="text-gray-600 mt-2 text-lg">
-//           Technologies I have worked with
-//         </p>
-//       </div>
-
-//       {/* Skills Grid */}
-//       <div className="flex justify-center items-center">
-//         <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 sm:gap-8">
-//           {skills.map((skill, index) => (
-//             <div
-//               key={index}
-//               className="glass-card w-32 sm:w-44 h-36 sm:h-44 flex flex-col items-center justify-center text-center rounded-xl shadow-xl transform transition duration-300 hover:scale-105 hover:shadow-2xl"
-//             >
-//               {/* Skill Image */}
-//               <img
-//                 src={skill.image}
-//                 alt={skill.alt}
-//                 className="w-16 sm:w-20 mb-2 transition duration-300"
-//               />
-//               {/* Skill Name */}
-//               <h3 className="text-lg font-semibold text-gray-700">
-//                 {skill.name}
-//               </h3>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Skills;
-
 import React from "react";
 
 const techStack = [
@@ -184,15 +120,15 @@ const techStack = [
 
 const Skills = () => {
   return (
-    <section id="tech" className="py-8 px-4 ">
+    <section id="tech" className="p-4 ">
       <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-8">
-        🔧 Tech Stack & Tools
+        Tech Stack & Tools
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {techStack.map((category, index) => (
           <div
             key={index}
-            className="rounded-lg bg-white border p-6 transition duration-300"
+            className="rounded-lg bg-white border border-gray-500 p-6 transition duration-300"
           >
             <h3 className="text-2xl font-semibold text-gray-700 mb-4">
               {category.title}

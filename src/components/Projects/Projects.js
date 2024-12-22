@@ -174,15 +174,15 @@ const projectData = [
 const Projects = () => {
   return (
     <div className="projects p-4 md:p-16 " id="projects">
-      <div className="project-section p-8 rounded-3xl bg-white border">
-        <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-8">
+      <div className="project-section  md:p-8 rounded-xl md:rounded-3xl bg-white">
+        <h2 className="text-4xl font-extrabold text-center text-gray-800 my-8">
           Projects
         </h2>
-        <div className="m-8 p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-8">
           {projectData.map((project) => (
             <div
               key={project._id}
-              className="projects-card p-4 rounded-2xl h-auto bg-white border transition-all duration-300 ease-in-out transform hover:scale-105"
+              className="projects-card p-4 rounded-2xl h-auto bg-white border border-gray-500 transition-all duration-300 ease-in-out transform hover:scale-105"
             >
               <div className="flex justify-center items-center mb-4">
                 <img
@@ -216,7 +216,7 @@ const Projects = () => {
                 </p>
                 <div className="flex justify-center gap-4">
                   <a
-                    className="flex items-center bg-violet-500 text-white py-2 px-4 rounded-lg hover:bg-violet-600 transition-all"
+                    className="flex items-center bg-orange-400 text-white py-2 px-4 rounded-lg hover:bg-orange-500 transition-all"
                     href={project.project_codelink}
                     target="_blank"
                     rel="noreferrer"
@@ -226,7 +226,7 @@ const Projects = () => {
                   </a>
                   {project.project_livelink && (
                     <a
-                      className="flex items-center bg-violet-500 text-white py-2 px-4 rounded-lg hover:bg-violet-600 transition-all"
+                      className="flex items-center bg-orange-400 text-white py-2 px-4 rounded-lg hover:bg-orange-500 transition-all"
                       href={project.project_livelink}
                       target="_blank"
                       rel="noreferrer"

@@ -50,7 +50,7 @@ const Contact = () => {
       <div className="flex justify-center items-center">
         <form
           onSubmit={handleSubmit}
-          className="w-full max-w-lg bg-white p-8 rounded-xl border"
+          className="w-full max-w-lg bg-white p-8 rounded-xl border border-gray-500"
         >
           <div className="mb-6">
             <div className="flex gap-4">
@@ -62,7 +62,7 @@ const Contact = () => {
                   Full Name
                 </label>
                 <input
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+                  className="w-full px-4 py-2 border border-gray-500 rounded-lg focus:border-white  focus:outline-none focus:ring-1 focus:ring-violet-500"
                   id="fname"
                   name="fname"
                   type="text"
@@ -80,7 +80,7 @@ const Contact = () => {
               Email Address
             </label>
             <input
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+              className="w-full px-4 py-2 border border-gray-500 rounded-lg focus:border-white focus:outline-none focus:ring-1 focus:ring-violet-500"
               id="email"
               name="email"
               type="email"
@@ -96,7 +96,7 @@ const Contact = () => {
               Write Message
             </label>
             <textarea
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+              className="w-full px-4 py-2 border border-gray-500 rounded-lg focus:border-white focus:outline-none focus:ring-1 focus:ring-violet-500"
               id="message"
               name="message"
               placeholder="Write your message here..."
@@ -110,7 +110,7 @@ const Contact = () => {
           <div className="flex justify-center">
             <button
               type="submit"
-              className="px-8 py-3 bg-violet-500 text-white text-lg rounded-lg hover:bg-violet-600 transition-all duration-300"
+              className="inline-block bg-violet-500 text-white px-6 py-3 rounded-lg font-semibold text-lg transform hover:scale-105 transition-all duration-300 shadow-lg hover:bg-violet-600"
             >
               Send Message
             </button>
