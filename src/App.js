@@ -1,11 +1,11 @@
-import "./assets/style/App.css";
-import Contact from "./components/Contact/Contact";
-import Footer from "./components/Footer/Footer";
-import Hero from "./components/Hero/Hero";
-import Navbar from "./components/Navbar/Navbar";
-import Projects from "./components/Projects/Projects";
-import Skills from "./components/Skills/Skills";
-import WorkExperience from "./components/WorkExperience/WorkExperience.js";
+import "./App.css";
+import Navbar from "./components/navBar.js";
+import Hero from "./components/hero.js";
+import Skills from "./components/skills.js";
+import Projects from "./components/projects.js";
+import WorkExperience from "./components/workExperience.js";
+import Footer from "./components/footer.js";
+import Contact from "./components/contact.js";
 
 function App() {
   return (
