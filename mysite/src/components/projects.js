@@ -59,7 +59,7 @@ const Projects = () => {
             >
               <div className="flex justify-center items-center mb-4">
                 <img
-                  className="rounded-xl w-72 h-48 object-cover"
+                  className="rounded-xl w-full h-48 object-cover"
                   src={project?.imgUrl}
                   alt={project?.project_title}
                 />

@@ -1,3 +1,4 @@
+import React from "react";
 import { techStack } from "constants/app.constants";
 
 const Skills = () => {
