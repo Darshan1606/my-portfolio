@@ -1,5 +1,35 @@
 import React from "react";
-import { HiArrowRight } from "react-icons/hi";
+import { HiArrowRight, HiTerminal } from "react-icons/hi";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+
+const Terminal = () => (
+  <div className="relative max-w-3xl mx-auto bg-[#1E1E1E] rounded-xl overflow-hidden shadow-2xl">
+    {/* Terminal Header */}
+    <div className="flex items-center gap-2 px-4 py-3 bg-[#2D2D2D] border-b border-gray-700">
+      <div className="flex gap-2">
+        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+      </div>
+      <div className="flex-1 text-center">
+        <span className="text-gray-400 text-sm font-mono">terminal</span>
+      </div>
+    </div>
+
+    {/* Terminal Content */}
+    <div className="p-6 font-mono">
+      <div className="flex items-center gap-2 text-green-400 mb-2">
+        <HiTerminal className="w-5 h-5" />
+        <span className="text-sm">
+          ~/portfolio ${" "}
+          <span className="text-purple-400">
+            From Complexity to Clarity — Through Code
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+);
 
 const Hero = () => {
   return (
@@ -10,27 +40,22 @@ const Hero = () => {
       </div>
 
       <div className="max-w-6xl mx-auto relative">
-        <div className="text-center space-y-8">
+        <div className="text-center space-y-12">
           {/* Main Heading with Glass Effect */}
           <div className="relative">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-white leading-tight">
+            <h1 className="text-2xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-white leading-tight">
               Hi, I'm{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-purple-200">
                 Darshan Tarsariya
               </span>
             </h1>
-            <div className="mt-4 text-3xl md:text-5xl font-bold text-white/80">
+            <div className="mt-4 text-2xl font-bold text-white/80">
               Software Engineer
             </div>
           </div>
 
-          {/* Description with Glass Card */}
-          <div className="relative max-w-3xl mx-auto">
-            <div className="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-2xl"></div>
-            <p className="relative text-gray-300 text-lg md:text-xl p-6 leading-relaxed">
-              From Complexity to Clarity — Through Code
-            </p>
-          </div>
+          {/* Terminal UI */}
+          <Terminal />
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -49,9 +74,25 @@ const Hero = () => {
             </a>
           </div>
 
-          {/* Decorative Elements */}
-          <div className="absolute top-1/4 left-0 w-24 h-24 border-l-2 border-t-2 border-purple-500/20 rounded-tl-xl"></div>
-          <div className="absolute bottom-1/4 right-0 w-24 h-24 border-r-2 border-b-2 border-purple-500/20 rounded-br-xl"></div>
+          {/* Social Links */}
+          <div className="flex justify-center gap-4">
+            <a
+              href="https://github.com/Darshan1606"
+              target="_blank"
+              rel="noreferrer"
+              className="p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 group"
+            >
+              <FaGithub className="w-6 h-6 text-gray-300 group-hover:text-purple-400" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/darshan-t-b2b5b31ab/"
+              target="_blank"
+              rel="noreferrer"
+              className="p-3 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 group"
+            >
+              <FaLinkedin className="w-6 h-6 text-gray-300 group-hover:text-purple-400" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

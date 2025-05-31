@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { navMenu } from "constants/app.constants";
+import { HiLightningBolt } from "react-icons/hi";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,6 +43,7 @@ const Navbar = () => {
               href="#contactme"
               className="px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg border border-white/20 text-white transition-all duration-300 text-sm flex items-center gap-2"
             >
+              <HiLightningBolt className="w-5 h-5 text-purple-400" />
               Get in Touch
             </a>
           </div>

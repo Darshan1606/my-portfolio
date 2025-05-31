@@ -76,9 +76,9 @@ const Projects = () => {
               </div>
 
               {/* Content */}
-              <div className="relative p-6">
+              <div className="relative p-6 z-10">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-purple-300 transition-all duration-300">
+                  <h3 className="text-xl font-bold text-white transition-all duration-300 bg-gradient-to-r from-white to-white bg-clip-text hover:from-white hover:via-purple-200 hover:to-white group-hover:text-transparent">
                     {project.project_title}
                   </h3>
                   <div className="flex gap-3">
