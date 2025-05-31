@@ -4,7 +4,6 @@ export const navMenu = [
   { title: "Projects", link: "#projects" },
   { title: "Work Experience", link: "#workexperience" },
   { title: "Blogs", link: "#blog" },
-  { title: "Contact", link: "#contactme" },
 ];
 
 export const techStack = [

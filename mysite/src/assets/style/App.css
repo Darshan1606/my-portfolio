@@ -3,12 +3,6 @@
   padding: 0;
 }
 
-.topHero {
-  background: rgba(110, 60, 188, 1);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 70%, 0% 82%);
-  height: 100vh; /* Adjust based on your design */
-}
-
 .hamburger {
   height: 40px;
   width: 40px;
@@ -72,33 +66,5 @@
 
   nav > .nav-menu > ul {
     display: none;
-  }
-}
-
-.heroclass .hero-image > img {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
-    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-}
-
-.hero-connect > a {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
-    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-}
-
-@media screen and (max-width: 650px) {
-  .heroclass {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    width: 100%;
-    margin: 2rem 0 0 0;
-    padding: 2rem 0;
-  }
-
-  .heroclass .hero-image > img {
-    width: 50vw;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
   }
 }

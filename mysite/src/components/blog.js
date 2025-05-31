@@ -3,12 +3,12 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <section id="blog" className="py-24 px-4">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">
+    <section id="blog" className="relative -mt-20 py-20 px-4 overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-white mb-4">
           From the Dev Desk
         </h2>
-        <p className="text-xl text-center text-gray-600 mb-12">
+        <p className="text-lg text-center text-gray-400 mb-12">
           Tech-driven thoughts from a software engineer's perspective
         </p>
 
@@ -16,20 +16,22 @@ const Blog = () => {
           {blogPosts.map((post) => (
             <article
               key={post.id}
-              className="p-6 border border-gray-500 bg-white rounded-xl overflow-hidden group hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="group relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:bg-white/10 hover:border-purple-500/30"
             >
-              <div className="relative">
+              <div className="relative h-48 overflow-hidden rounded-t-xl">
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-48 rounded-xl object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent"></div>
               </div>
+
               <div className="p-6">
-                <div className="flex justify-between items-center text-sm text-gray-500 mb-4">
+                <div className="flex justify-between items-center text-sm text-gray-400 mb-4">
                   <span className="flex items-center">
                     <svg
-                      className="w-4 h-4 mr-2"
+                      className="w-4 h-4 mr-2 text-purple-500"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -45,7 +47,7 @@ const Blog = () => {
                   </span>
                   <span className="flex items-center">
                     <svg
-                      className="w-4 h-4 mr-2"
+                      className="w-4 h-4 mr-2 text-purple-500"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -60,10 +62,12 @@ const Blog = () => {
                     {post.readTime}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3 line-clamp-2 group-hover:text-purple-700 transition-colors duration-300">
+
+                <h3 className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-white to-white group-hover:from-white group-hover:to-purple-300 transition-all duration-300 mb-3 line-clamp-2">
                   {post.title}
                 </h3>
-                <p className="text-gray-600 mb-6 line-clamp-3">
+
+                <p className="text-gray-400 mb-6 line-clamp-3">
                   {post.excerpt}
                 </p>
 
@@ -71,12 +75,12 @@ const Blog = () => {
                   href={post.mediumLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative inline-flex items-center justify-center w-full py-3 px-6 bg-white border-2 border-purple-600 text-purple-700 font-medium rounded-lg overflow-hidden transition-all duration-300 hover:bg-purple-600 hover:text-white group"
+                  className="relative inline-flex items-center justify-center w-full py-3 px-6 bg-white/5 backdrop-blur-sm border border-white/10 text-white font-medium rounded-lg overflow-hidden transition-all duration-300 hover:bg-white/10 hover:border-purple-500/30 group/btn"
                 >
                   <span className="relative z-10 flex items-center">
                     <span>Read on Medium</span>
                     <svg
-                      className="w-5 h-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1"
+                      className="w-5 h-5 ml-2 transform transition-transform duration-300 group-hover/btn:translate-x-1"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
