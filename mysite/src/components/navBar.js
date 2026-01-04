@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { navMenu } from "constants/app.constants";
-import { HiLightningBolt } from "react-icons/hi";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,15 +16,18 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#0A0A0A]/80 backdrop-blur-lg border-b border-[#2A2A2A]"
+          ? "bg-[#0A0A0A]/60 backdrop-blur-md border-b border-white/5"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#home" className="text-2xl font-bold text-white">
-            Darshan<span className="text-purple-500">T</span>
+          <a
+            href="#hero"
+            className="text-xl font-light text-white/80 hover:text-white transition-colors"
+          >
+            DT
           </a>
 
           {/* Navigation Links */}
@@ -34,18 +36,11 @@ const Navbar = () => {
               <a
                 key={index}
                 href={item.link}
-                className="text-gray-300 hover:text-white transition-colors duration-300 text-sm"
+                className="text-white/40 hover:text-white/70 transition-colors duration-300 text-sm font-light"
               >
                 {item.title}
               </a>
             ))}
-            <a
-              href="#contactme"
-              className="px-4 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-lg border border-white/20 text-white transition-all duration-300 text-sm flex items-center gap-2"
-            >
-              <HiLightningBolt className="w-5 h-5 text-purple-400" />
-              Get in Touch
-            </a>
           </div>
 
           {/* Mobile Menu Button */}

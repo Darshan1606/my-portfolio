@@ -1,5 +1,4 @@
 import React from "react";
-import { HiOutlineCode, HiOutlineEye } from "react-icons/hi";
 import p1 from "../assets/image/vidapp.png";
 import p2 from "../assets/image/tenzi.png";
 import p3 from "../assets/image/marvel.png";
@@ -48,79 +47,68 @@ const projectData = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="relative -mt-20 py-20 px-4">
-      <div className="max-w-6xl mx-auto relative">
-        <div className="mb-12 text-center">
-          <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-white mb-4">
-            Featured Projects
-          </h2>
-          <p className="text-gray-400 text-lg">Things I've built so far</p>
-        </div>
+    <section id="projects" className="question-section">
+      <div className="question-text">What have I built?</div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projectData.map((project, index) => (
-            <article
-              key={project._id}
-              className={`group relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:bg-white/10 hover:border-purple-500/30 ${
-                index === 0 ? "md:col-span-2" : ""
-              }`}
-            >
-              {/* Background Image with Overlay */}
-              <div className="absolute inset-0">
-                <img
-                  src={project.imgUrl}
-                  alt={project.project_title}
-                  className="w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/90 to-transparent"></div>
-              </div>
-
-              {/* Content */}
-              <div className="relative p-6 z-10">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-white transition-all duration-300 bg-gradient-to-r from-white to-white bg-clip-text hover:from-white hover:via-purple-200 hover:to-white group-hover:text-transparent">
-                    {project.project_title}
-                  </h3>
-                  <div className="flex gap-3">
-                    <a
-                      href={project.project_codelink}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center px-3 py-1.5 bg-white/5 hover:bg-white/10 text-white rounded-lg border border-white/10 backdrop-blur-sm transition-all duration-300 text-sm font-medium hover:border-purple-500/50"
-                    >
-                      <HiOutlineCode className="w-4 h-4 mr-1.5" />
-                      Code
-                    </a>
-                    {project.project_livelink && (
+      <div className="answer-content">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {projectData.map((project, index) => (
+              <article
+                key={project._id}
+                className="group relative border border-white/5 hover:border-white/10 transition-all duration-500 p-6"
+              >
+                <div className="space-y-4">
+                  <div className="flex justify-between items-start">
+                    <h3 className="text-xl font-light text-white/90">
+                      {project.project_title}
+                    </h3>
+                    <div className="flex gap-2">
                       <a
-                        href={project.project_livelink}
+                        href={project.project_codelink}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center px-3 py-1.5 bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 text-white rounded-lg transition-all duration-300 text-sm font-medium shadow-lg shadow-purple-500/25 hover:shadow-purple-500/50"
+                        className="text-white/30 hover:text-white/60 transition-colors text-sm font-light"
                       >
-                        <HiOutlineEye className="w-4 h-4 mr-1.5" />
-                        Live
+                        Code
                       </a>
-                    )}
+                      {project.project_livelink && (
+                        <>
+                          <span className="text-white/20">•</span>
+                          <a
+                            href={project.project_livelink}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-white/30 hover:text-white/60 transition-colors text-sm font-light"
+                          >
+                            Live
+                          </a>
+                        </>
+                      )}
+                    </div>
+                  </div>
+
+                  <p className="text-sm text-white/50 font-light leading-relaxed">
+                    {project.project_description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {project.project_tech.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs text-white/30 font-light"
+                      >
+                        {tech}
+                        {idx < project.project_tech.length - 1 && (
+                          <span className="mx-1">•</span>
+                        )}
+                      </span>
+                    ))}
                   </div>
                 </div>
-
-                <p className="text-sm text-gray-300 line-clamp-2 mb-4">
-                  {project.project_description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.project_tech.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 text-xs font-medium bg-white/5 text-gray-300 rounded-full border border-white/10 backdrop-blur-sm group-hover:border-purple-500/30"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

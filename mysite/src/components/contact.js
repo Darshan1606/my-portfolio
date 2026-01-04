@@ -51,29 +51,16 @@ const Contact = () => {
   };
 
   return (
-    <section id="contactme" className="relative py-12 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-white mb-4">
-            Get in Touch
-          </h2>
-          <p className="text-lg text-gray-400">
-            Have a question or want to work together? Let's connect!
-          </p>
-        </div>
+    <section id="contactme" className="question-section">
+      <div className="question-text">
+        Want to connect?
+      </div>
 
+      <div className="answer-content">
         <div className="max-w-2xl mx-auto">
           <div className="relative">
-            {/* Main Container with Permanent Glass Effect */}
-            <div className="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-2xl"></div>
-
-            {/* Subtle Gradient Background */}
-            <div className="absolute inset-0 rounded-2xl overflow-hidden">
-              <div className="absolute w-full h-full bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5"></div>
-            </div>
-
-            {/* Content Container */}
-            <div className="relative p-8">
+            {/* Minimal Container */}
+            <div className="relative p-8 border border-white/5">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Input */}
                 <div className="relative">
@@ -85,11 +72,11 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder=" "
                     required
-                    className="peer w-full bg-white/5 border-2 border-white/10 rounded-xl px-4 pt-6 pb-2 text-white focus:border-purple-500/50 focus:outline-none transition-colors duration-300"
+                    className="peer w-full bg-transparent border-b border-white/10 px-2 pt-4 pb-2 text-white focus:border-white/30 focus:outline-none transition-colors duration-300 font-light"
                   />
                   <label
                     htmlFor="fname"
-                    className="absolute left-4 top-4 text-white/60 text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:text-sm peer-focus:top-2 peer-focus:text-purple-400"
+                    className="absolute left-2 top-2 text-white/40 text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:text-sm peer-focus:top-0 peer-focus:text-white/60 font-light"
                   >
                     Full Name
                   </label>
@@ -105,11 +92,11 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder=" "
                     required
-                    className="peer w-full bg-white/5 border-2 border-white/10 rounded-xl px-4 pt-6 pb-2 text-white focus:border-purple-500/50 focus:outline-none transition-colors duration-300"
+                    className="peer w-full bg-transparent border-b border-white/10 px-2 pt-4 pb-2 text-white focus:border-white/30 focus:outline-none transition-colors duration-300 font-light"
                   />
                   <label
                     htmlFor="email"
-                    className="absolute left-4 top-4 text-white/60 text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:text-sm peer-focus:top-2 peer-focus:text-purple-400"
+                    className="absolute left-2 top-2 text-white/40 text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:text-sm peer-focus:top-0 peer-focus:text-white/60 font-light"
                   >
                     Email Address
                   </label>
@@ -125,22 +112,22 @@ const Contact = () => {
                     placeholder=" "
                     rows="4"
                     required
-                    className="peer w-full bg-white/5 border-2 border-white/10 rounded-xl px-4 pt-6 pb-2 text-white focus:border-purple-500/50 focus:outline-none transition-colors duration-300 resize-none"
+                    className="peer w-full bg-transparent border-b border-white/10 px-2 pt-4 pb-2 text-white focus:border-white/30 focus:outline-none transition-colors duration-300 resize-none font-light"
                   ></textarea>
                   <label
                     htmlFor="message"
-                    className="absolute left-4 top-4 text-white/60 text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:text-sm peer-focus:top-2 peer-focus:text-purple-400"
+                    className="absolute left-2 top-2 text-white/40 text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-2 peer-focus:text-sm peer-focus:top-0 peer-focus:text-white/60 font-light"
                   >
                     Your Message
                   </label>
                 </div>
 
                 {/* Submit Button */}
-                <div className="pt-4">
+                <div className="pt-6">
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full h-12 relative bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 text-white hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-2"
+                    className="w-full h-12 relative bg-transparent border border-white/10 text-white hover:border-white/30 transition-all duration-300 flex items-center justify-center gap-2 font-light text-sm"
                   >
                     {isLoading ? (
                       <>
