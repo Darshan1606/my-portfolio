@@ -1,0 +1,10 @@
+# Git shortcuts
+alias g="git"
+alias gs="git status"
+alias ga="git add ."
+alias gc="git commit -m"
+alias gpu="git push"
+alias gpl="git pull"
+alias gb="git branch"
+alias gco="git checkout"
+alias gl="git log --oneline --graph --all"
