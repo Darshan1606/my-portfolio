@@ -1,43 +1,34 @@
 import React from "react";
 import { HiOutlineCode, HiOutlineEye } from "react-icons/hi";
-import p1 from "../assets/image/vidapp.png";
-import p2 from "../assets/image/tenzi.png";
-import p3 from "../assets/image/marvel.png";
-import p4 from "../assets/image/portfolio.png";
+import p1 from "../assets/image/tn.png";
+import p2 from "../assets/image/egc.png";
+import p3 from "../assets/image/portfolio.png";
 
 const projectData = [
   {
     _id: 1,
     imgUrl: p1,
-    project_title: "VidApp",
-    project_tech: ["JavaScript", "React", "CSS"],
-    project_description: "React project with YouTube API",
-    project_codelink: "https://github.com/Darshan1606/VidApp",
-    project_livelink: "https://vidappbyme.netlify.app/",
+    project_title: "Tool Notes",
+    project_tech: ["Javascript", "React", "Tailwind CSS", "Posthog"],
+    project_description:
+      "Tool Notes is a developer reference site offering concise cheat-sheets and quick technical notes for programmers",
+    project_codelink:
+      "https://github.com/Darshan1606/cheat-sheets-for-developers",
+    project_livelink: "https://toolnotes.netlify.app/",
   },
   {
     _id: 2,
     imgUrl: p2,
-    project_title: "Tenzies Dice Game",
-    project_tech: ["JavaScript", "React", "CSS"],
+    project_title: "ENV Guardian",
+    project_tech: ["JavaScript", "Node.js", "npm"],
     project_description:
-      "Tenzies Dice game is the fast-paced and frenzied dice-rolling game",
-    project_codelink: "https://replit.com/@DarshanTarsariy/TenziesGame",
-    project_livelink: "https://tenziesgame.darshantarsariy.repl.co/",
+      "A CLI tool that scans and manages environment variables to prevent runtime errors and improve type safety in projects",
+    project_codelink: "https://github.com/Darshan1606/env-guardian-cli",
+    project_livelink: "https://www.npmjs.com/package/env-guardian-cli",
   },
   {
     _id: 3,
     imgUrl: p3,
-    project_title: "Marvel API Project",
-    project_tech: ["JavaScript", "React", "HTML", "CSS"],
-    project_description:
-      "The project display data of Marvel movies, comics, characters, stories and series using Marvel API",
-    project_codelink: "https://github.com/Darshan1606/React-Marvel-API",
-    project_livelink: "",
-  },
-  {
-    _id: 4,
-    imgUrl: p4,
     project_title: "My Portfolio",
     project_tech: ["JavaScript", "React", "HTML", "Tailwind CSS"],
     project_description: "This is my portfolio which made by me using React",
@@ -61,9 +52,7 @@ const Projects = () => {
           {projectData.map((project, index) => (
             <article
               key={project._id}
-              className={`group relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:bg-white/10 hover:border-purple-500/30 ${
-                index === 0 ? "md:col-span-2" : ""
-              }`}
+              className={`group relative overflow-hidden rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-300 hover:bg-white/10 hover:border-purple-500/30`}
             >
               {/* Background Image with Overlay */}
               <div className="absolute inset-0">
@@ -72,7 +61,7 @@ const Projects = () => {
                   alt={project.project_title}
                   className="w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/90 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-white/1 to-[#0A0A0A]"></div>
               </div>
 
               {/* Content */}
