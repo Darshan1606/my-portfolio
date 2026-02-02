@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <!-- Red glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Outer glow -->
+    <filter id="outerGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-color="#FF0000" flood-opacity="0.5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="64" height="64" fill="#000000"/>
+
+  <!-- Angular border frame -->
+  <path
+    d="M8 4 L56 4 L60 8 L60 56 L56 60 L8 60 L4 56 L4 8 Z"
+    fill="none"
+    stroke="#FF0000"
+    stroke-width="1.5"
+    opacity="0.6"
+    filter="url(#glow)"
+  />
+
+  <!-- Inner angular frame -->
+  <path
+    d="M12 8 L52 8 L56 12 L56 52 L52 56 L12 56 L8 52 L8 12 Z"
+    fill="#0A0A0A"
+    stroke="#DC143C"
+    stroke-width="1"
+    opacity="0.8"
+  />
+
+  <!-- Corner accents -->
+  <path d="M4 4 L14 4 L14 6 L6 6 L6 14 L4 14 Z" fill="#FF0000" opacity="0.7"/>
+  <path d="M60 4 L60 14 L58 14 L58 6 L50 6 L50 4 Z" fill="#FF0000" opacity="0.7"/>
+  <path d="M4 60 L4 50 L6 50 L6 58 L14 58 L14 60 Z" fill="#FF0000" opacity="0.7"/>
+  <path d="M60 60 L50 60 L50 58 L58 58 L58 50 L60 50 Z" fill="#FF0000" opacity="0.7"/>
+
+  <!-- Letter D - Terminal/Angular Style -->
+  <g filter="url(#outerGlow)">
+    <!-- Main D shape with angular cuts -->
+    <path
+      d="M20 16 L38 16 L44 22 L44 42 L38 48 L20 48 Z
+         M26 22 L26 42 L34 42 L38 38 L38 26 L34 22 Z"
+      fill="#FF0000"
+      fill-rule="evenodd"
+    />
+  </g>
+
+  <!-- Terminal cursor line -->
+  <rect x="46" y="42" width="4" height="8" fill="#FF0000" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.2;0.8" dur="1s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Grid lines decoration -->
+  <line x1="4" y1="32" x2="10" y2="32" stroke="#FF0000" stroke-width="0.5" opacity="0.3"/>
+  <line x1="54" y1="32" x2="60" y2="32" stroke="#FF0000" stroke-width="0.5" opacity="0.3"/>
+  <line x1="32" y1="4" x2="32" y2="10" stroke="#FF0000" stroke-width="0.5" opacity="0.3"/>
+  <line x1="32" y1="54" x2="32" y2="60" stroke="#FF0000" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Small indicator dots -->
+  <circle cx="10" cy="10" r="1" fill="#FF0000" opacity="0.6"/>
+  <circle cx="54" cy="10" r="1" fill="#FF0000" opacity="0.6"/>
+  <circle cx="10" cy="54" r="1" fill="#FF0000" opacity="0.6"/>
+  <circle cx="54" cy="54" r="1" fill="#FF0000" opacity="0.6"/>
+</svg>
