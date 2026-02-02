@@ -8,7 +8,7 @@ export const navMenu = [
 
 export const techStack = [
   {
-    title: "🛠️ Languages",
+    title: "Languages",
     items: [
       {
         name: "JavaScript",
@@ -23,7 +23,7 @@ export const techStack = [
     ],
   },
   {
-    title: "🎨 Frontend",
+    title: "Frontend",
     items: [
       {
         name: "ReactJS",
@@ -33,7 +33,7 @@ export const techStack = [
     ],
   },
   {
-    title: "⚙️ Backend",
+    title: "Backend",
     items: [
       {
         name: "Node.js",
@@ -53,7 +53,7 @@ export const techStack = [
     ],
   },
   {
-    title: "🗄️ Databases",
+    title: "Databases",
     items: [
       {
         name: "MongoDB",
@@ -78,7 +78,7 @@ export const techStack = [
     ],
   },
   {
-    title: "☁️ Cloud & APIs",
+    title: "Cloud & APIs",
     items: [
       {
         name: "AWS Lambda",
@@ -128,7 +128,7 @@ export const techStack = [
     ],
   },
   {
-    title: "🛠️ Tools & IDEs",
+    title: "Tools & IDEs",
     items: [
       {
         name: "Cursor",

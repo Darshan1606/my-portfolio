@@ -1,0 +1,826 @@
+/* ===================================
+   THEME - Cyberpunk Terminal Aesthetic
+   Red and Black Futuristic Design System
+   =================================== */
+
+/* ===== CSS CUSTOM PROPERTIES (DESIGN TOKENS) ===== */
+:root {
+  /* Primary Red Palette */
+  --tro-red-100: #ff6b6b;
+  --tro-red-200: #ff4444;
+  --tro-red-300: #ff0000;
+  --tro-red-400: #dc143c;
+  --tro-red-500: #cc0000;
+  --tro-red-600: #8b0000;
+  --tro-red-700: #660000;
+  --tro-red-glow: rgba(255, 0, 0, 0.6);
+  --tro-red-glow-soft: rgba(255, 0, 0, 0.3);
+  --tro-red-glow-faint: rgba(255, 0, 0, 0.15);
+
+  /* Black/Dark Palette */
+  --tro-black-100: #1a1a1a;
+  --tro-black-200: #141414;
+  --tro-black-300: #0f0f0f;
+  --tro-black-400: #0a0a0a;
+  --tro-black-500: #050505;
+  --tro-black-600: #000000;
+
+  /* Grid and Line Colors */
+  --tro-grid-color: rgba(255, 0, 0, 0.08);
+  --tro-grid-color-bright: rgba(255, 0, 0, 0.15);
+  --tro-line-color: rgba(255, 0, 0, 0.3);
+  --tro-border-color: rgba(255, 0, 0, 0.4);
+
+  /* Text Colors */
+  --tro-text-primary: #ffffff;
+  --tro-text-secondary: #cccccc;
+  --tro-text-dim: #888888;
+  --tro-text-red: #ff4444;
+
+  /* Animation Timings */
+  --tro-transition-fast: 150ms;
+  --tro-transition-normal: 300ms;
+  --tro-transition-slow: 500ms;
+  --tro-transition-slower: 800ms;
+
+  /* Shadows */
+  --tro-shadow-red:
+    0 0 20px rgba(255, 0, 0, 0.4), 0 0 40px rgba(255, 0, 0, 0.2);
+  --tro-shadow-red-intense:
+    0 0 30px rgba(255, 0, 0, 0.6), 0 0 60px rgba(255, 0, 0, 0.3),
+    0 0 100px rgba(255, 0, 0, 0.15);
+  --tro-shadow-red-subtle: 0 0 10px rgba(255, 0, 0, 0.2);
+}
+
+/* ===== BASE STYLES ===== */
+body {
+  margin: 0;
+  font-family: "JetBrains Mono", "Fira Code", "Courier New", monospace;
+  background-color: var(--tro-black-600);
+  color: var(--tro-text-primary);
+  overflow-x: hidden;
+}
+
+/* Monospace code styling */
+code,
+pre,
+.mono {
+  font-family: "JetBrains Mono", "Fira Code", "Courier New", monospace;
+}
+
+/* ===== SCANLINE ANIMATION ===== */
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+.scanline-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.scanline-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255, 0, 0, 0.15),
+    transparent
+  );
+  animation: scanline 6s linear infinite;
+}
+
+/* CRT scanlines effect */
+.crt-lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+}
+
+/* ===== GRID PATTERN ANIMATIONS ===== */
+@keyframes gridPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes gridFlow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 48px 48px;
+  }
+}
+
+.tro-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--tro-grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tro-grid-color) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: gridPulse 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+.tro-grid-animated {
+  animation:
+    gridFlow 20s linear infinite,
+    gridPulse 4s ease-in-out infinite;
+}
+
+/* Perspective grid floor effect */
+.tro-floor-grid {
+  position: absolute;
+  bottom: 0;
+  left: -50%;
+  width: 200%;
+  height: 40vh;
+  background-image:
+    linear-gradient(var(--tro-grid-color-bright) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tro-grid-color-bright) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: perspective(500px) rotateX(60deg);
+  transform-origin: center top;
+  mask-image: linear-gradient(to top, black, transparent);
+  -webkit-mask-image: linear-gradient(to top, black, transparent);
+  z-index: 0;
+}
+
+/* ===== NEON GLOW ANIMATIONS ===== */
+@keyframes neonPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 5px var(--tro-red-glow-soft),
+      0 0 10px var(--tro-red-glow-faint),
+      inset 0 0 5px var(--tro-red-glow-faint);
+    border-color: var(--tro-red-400);
+  }
+  50% {
+    box-shadow:
+      0 0 10px var(--tro-red-glow),
+      0 0 20px var(--tro-red-glow-soft),
+      0 0 40px var(--tro-red-glow-faint),
+      inset 0 0 10px var(--tro-red-glow-faint);
+    border-color: var(--tro-red-300);
+  }
+}
+
+@keyframes textGlow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 5px var(--tro-red-glow-soft),
+      0 0 10px var(--tro-red-glow-faint);
+  }
+  50% {
+    text-shadow:
+      0 0 10px var(--tro-red-glow),
+      0 0 20px var(--tro-red-glow-soft),
+      0 0 30px var(--tro-red-glow-faint);
+  }
+}
+
+@keyframes borderGlow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ===== GLITCH EFFECTS ===== */
+@keyframes glitch {
+  0%,
+  100% {
+    transform: translate(0);
+    filter: none;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(10deg);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    filter: hue-rotate(-10deg);
+  }
+  60% {
+    transform: translate(2px, 2px);
+    filter: hue-rotate(5deg);
+  }
+  80% {
+    transform: translate(2px, -2px);
+    filter: hue-rotate(-5deg);
+  }
+}
+
+@keyframes glitchText {
+  0%,
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+  5% {
+    clip-path: inset(20% 0 60% 0);
+    transform: translate(-3px, 0);
+  }
+  10% {
+    clip-path: inset(60% 0 10% 0);
+    transform: translate(3px, 0);
+  }
+  15% {
+    clip-path: inset(40% 0 40% 0);
+    transform: translate(-2px, 0);
+  }
+  20% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.glitch-text:hover::before {
+  animation: glitchText 0.5s ease infinite;
+  color: #ff0000;
+  opacity: 0.8;
+  left: 2px;
+}
+
+.glitch-text:hover::after {
+  animation: glitchText 0.5s ease infinite reverse;
+  color: #00ffff;
+  opacity: 0.8;
+  left: -2px;
+}
+
+/* ===== TERMINAL CURSOR ===== */
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.2em;
+  background-color: var(--tro-red-300);
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  box-shadow: 0 0 10px var(--tro-red-glow);
+}
+
+/* ===== MATRIX TEXT REVEAL ===== */
+@keyframes matrixReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.5;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.matrix-reveal {
+  animation: matrixReveal 0.5s ease-out forwards;
+}
+
+.matrix-reveal-stagger > * {
+  opacity: 0;
+  animation: matrixReveal 0.3s ease-out forwards;
+}
+
+.matrix-reveal-stagger > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.matrix-reveal-stagger > *:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.matrix-reveal-stagger > *:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.matrix-reveal-stagger > *:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.matrix-reveal-stagger > *:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.matrix-reveal-stagger > *:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.matrix-reveal-stagger > *:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.matrix-reveal-stagger > *:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.matrix-reveal-stagger > *:nth-child(9) {
+  animation-delay: 0.45s;
+}
+.matrix-reveal-stagger > *:nth-child(10) {
+  animation-delay: 0.5s;
+}
+
+/* ===== HEXAGONAL PATTERNS ===== */
+.hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon-border {
+  position: relative;
+}
+
+.hexagon-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: linear-gradient(135deg, var(--tro-red-300), var(--tro-red-600));
+  z-index: -1;
+}
+
+/* ===== CIRCUIT PATTERN ===== */
+.circuit-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L10 50 L50 50' stroke='%23FF000020' stroke-width='1' fill='none'/%3E%3Cpath d='M90 10 L90 30 L70 30 L70 50' stroke='%23FF000020' stroke-width='1' fill='none'/%3E%3Cpath d='M10 90 L30 90 L30 70 L50 70' stroke='%23FF000020' stroke-width='1' fill='none'/%3E%3Ccircle cx='50' cy='50' r='3' fill='%23FF000030'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%23FF000030'/%3E%3Ccircle cx='90' cy='10' r='2' fill='%23FF000030'/%3E%3Ccircle cx='10' cy='90' r='2' fill='%23FF000030'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+}
+
+/* ===== CORNER DECORATIONS ===== */
+.corner-accent {
+  position: relative;
+}
+
+.corner-accent::before,
+.corner-accent::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--tro-red-400);
+  border-style: solid;
+  border-width: 0;
+}
+
+.corner-accent::before {
+  top: 0;
+  left: 0;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.corner-accent::after {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+.corner-accent-all::before {
+  top: 0;
+  left: 0;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+/* Additional corners using pseudo-element on a wrapper */
+.corner-accent-tr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-color: var(--tro-red-400);
+  border-style: solid;
+  border-width: 2px 2px 0 0;
+}
+
+.corner-accent-bl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-color: var(--tro-red-400);
+  border-style: solid;
+  border-width: 0 0 2px 2px;
+}
+
+/* ===== PULSING INDICATORS ===== */
+@keyframes indicatorPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+}
+
+.pulse-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: var(--tro-red-300);
+  border-radius: 0;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  animation: indicatorPulse 2s ease-in-out infinite;
+  box-shadow: 0 0 10px var(--tro-red-glow);
+}
+
+.pulse-indicator-circle {
+  width: 8px;
+  height: 8px;
+  background-color: var(--tro-red-300);
+  border-radius: 50%;
+  animation: indicatorPulse 2s ease-in-out infinite;
+  box-shadow: 0 0 10px var(--tro-red-glow);
+}
+
+/* ===== DATA STREAM ANIMATION ===== */
+@keyframes dataStream {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 100%;
+  }
+}
+
+.data-stream {
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--tro-red-glow-faint) 20%,
+    var(--tro-red-300) 50%,
+    var(--tro-red-glow-faint) 80%,
+    transparent 100%
+  );
+  background-size: 100% 200%;
+  animation: dataStream 3s linear infinite;
+}
+
+/* ===== HUD ELEMENTS ===== */
+.hud-bracket-left {
+  position: relative;
+  padding-left: 20px;
+}
+
+.hud-bracket-left::before {
+  content: "[";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--tro-red-400);
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.hud-bracket-right {
+  position: relative;
+  padding-right: 20px;
+}
+
+.hud-bracket-right::after {
+  content: "]";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--tro-red-400);
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+/* ===== LOADING ANIMATION ===== */
+@keyframes tronSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.tro-spinner {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--tro-red-700);
+  border-top-color: var(--tro-red-300);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  animation: tronSpin 1s linear infinite;
+}
+
+/* ===== RESPONSIVE UTILITIES ===== */
+@media (max-width: 768px) {
+  .tro-grid {
+    background-size: 32px 32px;
+  }
+
+  .corner-accent::before,
+  .corner-accent::after {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+/* ===== SELECTION STYLES ===== */
+::selection {
+  background-color: var(--tro-red-600);
+  color: var(--tro-text-primary);
+}
+
+::-moz-selection {
+  background-color: var(--tro-red-600);
+  color: var(--tro-text-primary);
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--tro-black-400);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--tro-red-600);
+  border: 1px solid var(--tro-red-400);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--tro-red-500);
+}
+
+/* ===== FOCUS STYLES ===== */
+*:focus-visible {
+  outline: 2px solid var(--tro-red-400);
+  outline-offset: 2px;
+}
+
+/* ===== TYPING ANIMATION ===== */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkCaret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--tro-red-300);
+  }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--tro-red-300);
+  animation:
+    typing 2s steps(30, end),
+    blinkCaret 0.75s step-end infinite;
+}
+
+/* ===== NOISE OVERLAY ===== */
+@keyframes noise {
+  0%,
+  100% {
+    background-position: 0 0;
+  }
+  10% {
+    background-position: -5% -10%;
+  }
+  20% {
+    background-position: -15% 5%;
+  }
+  30% {
+    background-position: 7% -25%;
+  }
+  40% {
+    background-position: 20% 25%;
+  }
+  50% {
+    background-position: -25% 10%;
+  }
+  60% {
+    background-position: 15% 5%;
+  }
+  70% {
+    background-position: 0% 15%;
+  }
+  80% {
+    background-position: 25% 35%;
+  }
+  90% {
+    background-position: -10% 10%;
+  }
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  animation: noise 0.5s steps(10) infinite;
+}
+
+/* ===== ANGULAR SHAPES (NO ROUNDED CORNERS) ===== */
+.angular {
+  border-radius: 0 !important;
+}
+
+.angular-cut {
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+}
+
+.angular-cut-sm {
+  clip-path: polygon(
+    0 5px,
+    5px 0,
+    calc(100% - 5px) 0,
+    100% 5px,
+    100% calc(100% - 5px),
+    calc(100% - 5px) 100%,
+    5px 100%,
+    0 calc(100% - 5px)
+  );
+}
+
+/* ===== UTILITY ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.5s ease-out forwards;
+}
+
+/* Animation delays */
+.delay-100 {
+  animation-delay: 100ms;
+}
+.delay-200 {
+  animation-delay: 200ms;
+}
+.delay-300 {
+  animation-delay: 300ms;
+}
+.delay-400 {
+  animation-delay: 400ms;
+}
+.delay-500 {
+  animation-delay: 500ms;
+}
+.delay-600 {
+  animation-delay: 600ms;
+}
+.delay-700 {
+  animation-delay: 700ms;
+}
+.delay-800 {
+  animation-delay: 800ms;
+}
+.delay-900 {
+  animation-delay: 900ms;
+}
+.delay-1000 {
+  animation-delay: 1000ms;
+}

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import emailjs from "emailjs-com"; // Import the EmailJS SDK
+import emailjs from "emailjs-com";
 import { toast, Toaster } from "react-hot-toast";
 import {
   EMAILJS_SERVICE_ID,
   EMAILJS_TEMPLATE_ID,
   EMAILJS_USER_ID,
 } from "constants/env.constants";
+import { HiPaperAirplane } from "react-icons/hi";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -29,10 +30,10 @@ const Contact = () => {
     try {
       emailjs
         .sendForm(
-          EMAILJS_SERVICE_ID, // EmailJS service ID
-          EMAILJS_TEMPLATE_ID, // EmailJS template ID
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
           e.target,
-          EMAILJS_USER_ID // EmailJS user ID
+          EMAILJS_USER_ID
         )
         .then(
           (result) => {
@@ -51,88 +52,171 @@ const Contact = () => {
   };
 
   return (
-    <section id="contactme" className="relative py-12 px-4">
+    <section id="contactme" className="relative py-20 px-4">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-200 to-white mb-4">
-            Get in Touch
-          </h2>
-          <p className="text-lg text-gray-400">
-            Have a question or want to work together? Let's connect!
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="h-px w-16 bg-gradient-to-r from-transparent to-red-500/50" />
+            <span className="text-red-500/70 font-mono text-sm tracking-widest">{"["}</span>
+            <h2 className="text-3xl md:text-4xl font-mono font-bold uppercase tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-300 to-red-500">
+              Get in Touch
+            </h2>
+            <span className="text-red-500/70 font-mono text-sm tracking-widest">{"]"}</span>
+            <div className="h-px w-16 bg-gradient-to-l from-transparent to-red-500/50" />
+          </div>
+          <p className="text-gray-500 font-mono text-sm tracking-wide">
+            {"// Have a question or want to work together? Let's connect!"}
           </p>
         </div>
 
         <div className="max-w-2xl mx-auto">
-          <div className="relative">
-            {/* Main Container with Permanent Glass Effect */}
-            <div className="absolute inset-0 bg-white/5 backdrop-blur-sm rounded-2xl"></div>
+          {/* Terminal-style form container */}
+          <div
+            className="relative bg-black/80 border border-red-500/40
+                     shadow-[0_0_40px_rgba(255,0,0,0.15)]"
+            style={{
+              clipPath:
+                "polygon(0 15px, 15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px))",
+            }}
+          >
+            {/* Corner accents */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-red-500/60" />
+            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-red-500/60" />
+            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-red-500/60" />
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-red-500/60" />
 
-            {/* Subtle Gradient Background */}
-            <div className="absolute inset-0 rounded-2xl overflow-hidden">
-              <div className="absolute w-full h-full bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5"></div>
+            {/* Circuit pattern overlay */}
+            <div
+              className="absolute inset-0 opacity-5"
+              style={{
+                backgroundImage:
+                  "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L10 50 L50 50' stroke='%23FF0000' stroke-width='1' fill='none'/%3E%3Cpath d='M90 10 L90 30 L70 30 L70 50' stroke='%23FF0000' stroke-width='1' fill='none'/%3E%3Ccircle cx='50' cy='50' r='3' fill='%23FF0000'/%3E%3C/svg%3E\")",
+                backgroundSize: "100px 100px",
+              }}
+            />
+
+            {/* Header bar */}
+            <div className="relative px-6 py-4 border-b border-red-500/30 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="flex gap-2">
+                  <div
+                    className="w-3 h-3 bg-red-500/80 shadow-[0_0_8px_rgba(255,0,0,0.5)]"
+                    style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }}
+                  />
+                  <div
+                    className="w-3 h-3 bg-red-400/60"
+                    style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }}
+                  />
+                  <div
+                    className="w-3 h-3 bg-red-300/40"
+                    style={{ clipPath: "polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)" }}
+                  />
+                </div>
+                <span className="text-red-400/70 text-sm font-mono tracking-wider uppercase">
+                  {"// message_transmission"}
+                </span>
+              </div>
+              <div className="flex items-center gap-1">
+                <span className="w-1.5 h-1.5 bg-red-500 animate-pulse" />
+                <span className="text-xs font-mono text-gray-600">READY</span>
+              </div>
             </div>
 
-            {/* Content Container */}
+            {/* Form content */}
             <div className="relative p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Input */}
                 <div className="relative">
-                  <input
-                    id="fname"
-                    name="fname"
-                    type="text"
-                    value={formData.fname}
-                    onChange={handleChange}
-                    placeholder=" "
-                    required
-                    className="peer w-full bg-white/5 border-2 border-white/10 rounded-xl px-4 pt-6 pb-2 text-white focus:border-purple-500/50 focus:outline-none transition-colors duration-300"
-                  />
                   <label
                     htmlFor="fname"
-                    className="absolute left-4 top-4 text-white/60 text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:text-sm peer-focus:top-2 peer-focus:text-purple-400"
+                    className="block text-sm font-mono text-red-400/80 mb-2 uppercase tracking-wider"
                   >
-                    Full Name
+                    {">"} Full Name
                   </label>
+                  <div className="relative">
+                    <input
+                      id="fname"
+                      name="fname"
+                      type="text"
+                      value={formData.fname}
+                      onChange={handleChange}
+                      placeholder="Enter your name..."
+                      required
+                      className="w-full bg-black/60 border border-red-500/30
+                               px-4 py-3 text-gray-100 font-mono
+                               placeholder-gray-600
+                               focus:outline-none focus:border-red-500/60
+                               focus:shadow-[0_0_15px_rgba(255,0,0,0.2)]
+                               transition-all duration-300"
+                      style={{
+                        clipPath:
+                          "polygon(0 6px, 6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px))",
+                      }}
+                    />
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 w-2 h-4 bg-red-500/30" />
+                  </div>
                 </div>
 
                 {/* Email Input */}
                 <div className="relative">
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder=" "
-                    required
-                    className="peer w-full bg-white/5 border-2 border-white/10 rounded-xl px-4 pt-6 pb-2 text-white focus:border-purple-500/50 focus:outline-none transition-colors duration-300"
-                  />
                   <label
                     htmlFor="email"
-                    className="absolute left-4 top-4 text-white/60 text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:text-sm peer-focus:top-2 peer-focus:text-purple-400"
+                    className="block text-sm font-mono text-red-400/80 mb-2 uppercase tracking-wider"
                   >
-                    Email Address
+                    {">"} Email Address
                   </label>
+                  <div className="relative">
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Enter your email..."
+                      required
+                      className="w-full bg-black/60 border border-red-500/30
+                               px-4 py-3 text-gray-100 font-mono
+                               placeholder-gray-600
+                               focus:outline-none focus:border-red-500/60
+                               focus:shadow-[0_0_15px_rgba(255,0,0,0.2)]
+                               transition-all duration-300"
+                      style={{
+                        clipPath:
+                          "polygon(0 6px, 6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px))",
+                      }}
+                    />
+                    <div className="absolute right-3 top-1/2 -translate-y-1/2 w-2 h-4 bg-red-500/30" />
+                  </div>
                 </div>
 
                 {/* Message Input */}
                 <div className="relative">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-mono text-red-400/80 mb-2 uppercase tracking-wider"
+                  >
+                    {">"} Your Message
+                  </label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder=" "
-                    rows="4"
+                    placeholder="Type your message..."
+                    rows="5"
                     required
-                    className="peer w-full bg-white/5 border-2 border-white/10 rounded-xl px-4 pt-6 pb-2 text-white focus:border-purple-500/50 focus:outline-none transition-colors duration-300 resize-none"
-                  ></textarea>
-                  <label
-                    htmlFor="message"
-                    className="absolute left-4 top-4 text-white/60 text-sm transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:text-sm peer-focus:top-2 peer-focus:text-purple-400"
-                  >
-                    Your Message
-                  </label>
+                    className="w-full bg-black/60 border border-red-500/30
+                             px-4 py-3 text-gray-100 font-mono
+                             placeholder-gray-600
+                             focus:outline-none focus:border-red-500/60
+                             focus:shadow-[0_0_15px_rgba(255,0,0,0.2)]
+                             transition-all duration-300 resize-none"
+                    style={{
+                      clipPath:
+                        "polygon(0 6px, 6px 0, calc(100% - 6px) 0, 100% 6px, 100% calc(100% - 6px), calc(100% - 6px) 100%, 6px 100%, 0 calc(100% - 6px))",
+                    }}
+                  />
                 </div>
 
                 {/* Submit Button */}
@@ -140,90 +224,102 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full h-12 relative bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 text-white hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-2"
+                    className="w-full py-4 px-6 bg-red-500/20 border-2 border-red-500/60
+                             text-red-100 font-mono uppercase tracking-wider
+                             hover:bg-red-500/30 hover:border-red-400
+                             hover:shadow-[0_0_25px_rgba(255,0,0,0.4)]
+                             disabled:opacity-50 disabled:cursor-not-allowed
+                             transition-all duration-300 flex items-center justify-center gap-3"
+                    style={{
+                      clipPath:
+                        "polygon(0 8px, 8px 0, calc(100% - 8px) 0, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0 calc(100% - 8px))",
+                    }}
                   >
                     {isLoading ? (
                       <>
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white/80 rounded-full animate-spin"></div>
-                        <span>Sending...</span>
+                        <div
+                          className="w-5 h-5 border-2 border-red-400/30 border-t-red-400"
+                          style={{
+                            animation: "spin 1s linear infinite",
+                            clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
+                          }}
+                        />
+                        <span>Transmitting...</span>
                       </>
                     ) : (
                       <>
-                        <span>Send Message</span>
-                        <svg
-                          className="w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M14 5l7 7m0 0l-7 7m7-7H3"
-                          />
-                        </svg>
+                        <span>Send Transmission</span>
+                        <HiPaperAirplane className="w-5 h-5 transform rotate-45" />
                       </>
                     )}
                   </button>
                 </div>
               </form>
+
+              {/* Status bar */}
+              <div className="mt-6 pt-4 border-t border-red-500/20 flex items-center justify-between text-xs font-mono text-gray-600">
+                <span className="flex items-center gap-1">
+                  <span className="w-1 h-1 bg-green-500" />
+                  ENCRYPTION: ACTIVE
+                </span>
+                <span className="flex items-center gap-1">
+                  <span className="w-1 h-1 bg-red-500 animate-pulse" />
+                  CHANNEL: SECURE
+                </span>
+              </div>
             </div>
+
+            {/* Bottom glow line */}
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/50 to-transparent" />
+          </div>
+        </div>
+
+        {/* Bottom decoration */}
+        <div className="flex items-center justify-center mt-12">
+          <div className="flex items-center gap-2 text-xs font-mono text-gray-600">
+            <span className="w-2 h-2 bg-red-500/50 rotate-45" />
+            <span className="w-1 h-1 bg-red-500/30" />
+            <span className="text-red-500/50">COMMS.READY</span>
+            <span className="w-1 h-1 bg-red-500/30" />
+            <span className="w-2 h-2 bg-red-500/50 rotate-45" />
           </div>
         </div>
       </div>
 
-      {/* Toast Notifications */}
+      {/* Toast Notifications - Tron themed */}
       <Toaster
         position="top-right"
         toastOptions={{
-          className: "bg-[#1a1a1a] text-white border border-white/10",
+          className: "font-mono",
           style: {
-            background: "#1a1a1a",
+            background: "#0A0A0A",
             color: "#fff",
-            border: "1px solid rgba(255, 255, 255, 0.1)",
+            border: "1px solid rgba(255, 0, 0, 0.4)",
+            borderRadius: "0",
+            padding: "12px 16px",
           },
           success: {
             iconTheme: {
-              primary: "#a855f7",
-              secondary: "#fff",
+              primary: "#FF0000",
+              secondary: "#000",
+            },
+            style: {
+              borderColor: "rgba(0, 255, 0, 0.4)",
             },
           },
           error: {
             iconTheme: {
-              primary: "#ef4444",
+              primary: "#FF0000",
               secondary: "#fff",
             },
           },
         }}
       />
 
-      {/* Add these styles to your CSS */}
       <style jsx>{`
-        @keyframes shine {
-          0% {
-            background-position: 200% 0;
-          }
-          100% {
-            background-position: -200% 0;
-          }
-        }
-        .animate-shine {
-          animation: shine 8s linear infinite;
-        }
-        @keyframes border-shine {
-          0% {
-            opacity: 0.5;
-          }
-          50% {
-            opacity: 1;
-          }
-          100% {
-            opacity: 0.5;
-          }
-        }
-        .animate-border-shine {
-          animation: border-shine 4s ease-in-out infinite;
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
       `}</style>
     </section>
